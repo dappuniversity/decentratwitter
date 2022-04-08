@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 =======
 # Decentratwitter
 
@@ -48,4 +47,3 @@ License
 ----
 MIT
 
->>>>>>> 2a5cdd652e0b1abe6b85499d0eb7960cf6dd3159
