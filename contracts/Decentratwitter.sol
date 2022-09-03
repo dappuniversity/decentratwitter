@@ -96,6 +96,8 @@ contract Decentratwitter is ERC721URIStorage {
         for (uint256 i = 0; i < _posts.length; i++) {
             _posts[i] = posts[i + 1];
         }
+
+        return _posts;
     }
 
     // Fetches all of the users nfts
