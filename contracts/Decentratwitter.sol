@@ -43,7 +43,7 @@ contract Decentratwitter is ERC721URIStorage {
     constructor() ERC721("Decentratwitter", "DAPP") {}
 
     function mint(string memory _tokenURI) external returns (uint256) {
-        tokenCount++;
+        ++tokenCount;
         _safeMint(msg.sender, tokenCount);
         _setTokenURI(tokenCount, _tokenURI);
         setProfile(tokenCount);
@@ -67,7 +67,7 @@ contract Decentratwitter is ERC721URIStorage {
         // Make sure the post hash exists
         require(bytes(_postHash).length > 0, "Cannot pass an empty hash");
         // Increment post count
-        postCount++;
+        ++postCount;
         // Add post to the contract
         posts[postCount] = Post(postCount, _postHash, 0, payable(msg.sender));
         // Trigger an event
@@ -93,7 +93,7 @@ contract Decentratwitter is ERC721URIStorage {
     // Fetches all the posts
     function getAllPosts() external view returns (Post[] memory _posts) {
         _posts = new Post[](postCount);
-        for (uint256 i = 0; i < _posts.length; i++) {
+        for (uint256 i = 0; i < _posts.length; ++i) {
             _posts[i] = posts[i + 1];
         }
     }
@@ -103,10 +103,10 @@ contract Decentratwitter is ERC721URIStorage {
         _ids = new uint256[](balanceOf(msg.sender));
         uint256 currentIndex;
         uint256 _tokenCount = tokenCount;
-        for (uint256 i = 0; i < _tokenCount; i++) {
+        for (uint256 i = 0; i < _tokenCount; ++i) {
             if (ownerOf(i + 1) == msg.sender) {
                 _ids[currentIndex] = i + 1;
-                currentIndex++;
+                ++currentIndex;
             }
         }
     }
